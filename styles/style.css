@@ -188,6 +188,10 @@ input[type="number"] {
   cursor: pointer;
 }
 
+.form-box .d-none {
+  display: none;
+}
+
 .menu {
   margin: 0 100px;
 }
@@ -341,7 +345,6 @@ td {
   }
 
   .form-box .input-box select {
-    width: 465px;
     height: 30px;
     font-size: 12px;
     border-radius: 10px;
