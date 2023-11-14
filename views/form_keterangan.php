@@ -80,7 +80,7 @@ if (isset($_POST['submitform'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Surat | Formulir Keterangan</title>
 
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/userstyle.css">
 </head>
 
 <body>

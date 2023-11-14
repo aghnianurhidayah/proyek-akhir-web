@@ -6,7 +6,7 @@
 
     $dompdf = new Dompdf();
     ob_start();
-    require('template_surat/keterangan_domisili.php');
+    require('template_surat/pernyataan_tidakmemilikiakte.php');
     $html = ob_get_contents();
     ob_get_clean();
 
@@ -17,6 +17,6 @@
     $dompdf->render();
 
     $tgl = date('Y-m-d');
-    $dompdf->stream('Surat Keterangan Domisili_'.$tgl.'.pdf', ['Attachment'=>false]);
+    $dompdf->stream('Surat Pernyataan Tidak Memiliki Akte Kelahiran_'.$tgl.'.pdf', ['Attachment'=>false]);
 
 ?>

@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Surat | Riwayat Surat</title>
 
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/userstyle.css">
 </head>
 <body>
     <?php include 'navbar.php'; ?>
@@ -55,7 +55,9 @@
                         <td><?= $srt['tgl_masuk']?></td>
                         <td><?= $srt['tgl_keluar']?></td>
                         <td><?= $f['status']?></td>
-                        <td><a href="../surat/<?= $f['nama_surat']?>.php?form_id=<?= $f['form_id']?>" target="_blank"><button>Unduh</button></a></td>
+                        <td>
+                            <a href="../surat/<?= $f['nama_surat']?>.php?form_id=<?= $f['form_id']?>" target="_blank"><button>Unduh</button></a>
+                        </td>
                     </tr>
                     <?php $j++; endforeach; ?>
                     <?php $i++; endforeach; ?>

@@ -80,7 +80,7 @@ if (isset($_POST['submitform'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Surat | Formulir Pernyataan</title>
 
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/userstyle.css">
 </head>
 
 <body>
@@ -96,8 +96,8 @@ if (isset($_POST['submitform'])) {
                     <label for="surat">Pilih Surat</label>
                     <select name="surat" onchange="getValue(this)">
                         <option value="">Pilih Surat</option>
-                        <option value="Surat Pernyataan Tidak Memiliki Akte Kelahiran">Surat Pernyataan Tidak Memiliki Akte Kelahiran</option>
-                        <option value="Surat Pernyataan Janda/Duda">Surat Pernyataan Janda/Duda</option>
+                        <option value="Surat Pernyataan Tidak Memiliki Akta Kelahiran">Surat Pernyataan Tidak Memiliki Akta Kelahiran</option>
+                        <option value="Surat Pernyataan Janda Duda">Surat Pernyataan Janda/Duda</option>
                     </select>
                 </div>
                 <div class="input-box d-none" id="input-nik">
