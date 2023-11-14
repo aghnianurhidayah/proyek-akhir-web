@@ -28,15 +28,9 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a href="#" class="nav-link">
+                        <a href="../views/surat_masuk.php" class="nav-link">
                             <i class="bx bx-envelope icon"></i>
                             <span class="link">Surat Masuk</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="../views/status.php" class="nav-link">
-                            <i class="bx bx-bell icon"></i>
-                            <span class="link">Status</span>
                         </a>
                     </li>
                 </ul>
