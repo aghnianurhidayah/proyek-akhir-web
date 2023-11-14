@@ -64,7 +64,6 @@ body {
 
 .status-select{
     min-width: 350px;
-    position: relative;
 }
 
 select {

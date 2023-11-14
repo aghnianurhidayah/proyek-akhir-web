@@ -26,21 +26,25 @@
                     <p>Nama Lengkap : </p>
                     <p>Nama Surat : </p>
                     <p>Jenis Surat : </p>
-                    form
-                    <div class="status-select">
-                        <select required>
-                            <option value="Proses" selected>Proses</option>
-                            <option value="Setuju">Disetujui</option>
-                            <option value="Tolak">Ditolak</option>
-                        </select>
-                        <br><br>
-                        <input type="submit" value="Submit">
-                    </div>
+                    <form action="">
+                        <div class="status-select">
+                            <select required>
+                                <option value="Proses" selected>Proses</option>
+                                <option value="Setuju">Disetujui</option>
+                                <option value="Tolak">Ditolak</option>
+                            </select>
+                            <br><br>
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="right">
                 <div class="container">
                     <h3>Preview File</h3>
+                </div>
+                <div class="display">
+                <iframe src="../surat/Surat Pengantar Nikah.php" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
