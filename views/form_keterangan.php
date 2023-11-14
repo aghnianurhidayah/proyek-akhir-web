@@ -28,7 +28,7 @@ if (isset($_POST['submitform'])) {
     $tmp_ktp = $_FILES['fktp']['tmp_name'];
     $tmp_foto = $_FILES['ffoto']['tmp_name'];
 
-    $tgl_masuk = date('d-m-Y');
+    $tgl_masuk = date('Y-m-d');
 
     if (is_uploaded_file($tmp_kk) && file_exists($tmp_kk)) {
         move_uploaded_file($tmp_kk, "../img/kk/" . $file_kk);
@@ -104,34 +104,34 @@ if (isset($_POST['submitform'])) {
                 </div>
                 <div class="input-box d-none" id="input-nik">
                     <label for="nik">NIK</label>
-                    <input type="number" name="nik" class="textfield" placeholder="Masukan NIK" required>
+                    <input type="number" name="nik" id="nik" class="textfield" placeholder="Masukan NIK">
                 </div>
                 <div class="input-box d-none" id="input-nokk">
                     <label for="nokk">No KK</label>
-                    <input type="number" name="nokk" class="textfield" placeholder="Masukan No. KK" required>
+                    <input type="number" name="nokk" id="nokk" class="textfield" placeholder="Masukan No. KK">
                 </div>
                 <div class="input-box d-none" id="input-nama">
                     <label for="nama">Nama Lengkap</label>
-                    <input type="text" name="nama" class="textfield" placeholder="Masukan Nama Lengkap" required>
+                    <input type="text" name="nama" id="nama" class="textfield" placeholder="Masukan Nama Lengkap">
                 </div>
                 <div class="input-box d-none" id="input-tl">
                     <label for="tl">Tanggal Lahir</label>
-                    <input type="date" name="tl" class="textfield" placeholder="Masukan Tanggal Lahir" required>
+                    <input type="date" name="tl" id="tl" class="textfield" placeholder="Masukan Tanggal Lahir">
                 </div>
                 <div class="input-box d-none" id="input-tk">
                     <label for="tl">Tanggal Kematian</label>
-                    <input type="date" name="tk" class="textfield" placeholder="Masukan Tanggal Kematian" required>
+                    <input type="date" name="tk" id="tk" class="textfield" placeholder="Masukan Tanggal Kematian">
                 </div>
                 <div class="input-box d-none" id="input-jk">
                     <label for="jk">Jenis Kelamin</label>
-                    <select name="jk" required>
+                    <select name="jk" id="jk">
                         <option value="Laki-Laki">Laki-Laki</option>
                         <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
                 <div class="input-box d-none" id="input-agama">
                     <label for="agama">Agama</label>
-                    <select name="agama" required>
+                    <select name="agama" id="agama">
                         <option value="Islam">Islam</option>
                         <option value="Kristen">Kristen</option>
                         <option value="Katolik">Katolik</option>
@@ -142,35 +142,35 @@ if (isset($_POST['submitform'])) {
                 </div>
                 <div class="input-box d-none" id="input-alamat">
                     <label for="alamat">Alamat</label>
-                    <input type="text" name="alamat" class="textfield" placeholder="Masukan Alamat" required>
+                    <input type="text" name="alamat" id="alamat" class="textfield" placeholder="Masukan Alamat">
                 </div>
                 <div class="input-box d-none" id="input-pekerjaan">
                     <label for="pekerjaan">Pekerjaan</label>
-                    <input type="text" name="pekerjaan" class="textfield" placeholder="Masukan Pekerjaan" required>
+                    <input type="text" name="pekerjaan" id="pekerjaan" class="textfield" placeholder="Masukan Pekerjaan">
                 </div>
                 <div class="input-box d-none" id="input-wn">
                     <label for="wn">Kewarganegaraan</label>
-                    <input type="text" name="wn" class="textfield" placeholder="Masukan Kewarganegaraan" required>
+                    <input type="text" name="wn" id="wn" class="textfield" placeholder="Masukan Kewarganegaraan">
                 </div>
                 <div class="input-box d-none" id="input-ayah">
                     <label for="ayah">Nama Ayah Kandung</label>
-                    <input type="text" name="ayah" class="textfield" placeholder="Masukan Nama Ayah" required>
+                    <input type="text" name="ayah" id="ayah" class="textfield" placeholder="Masukan Nama Ayah">
                 </div>
                 <div class="input-box d-none" id="input-ibu">
                     <label for="ibu">Nama Ibu Kandung</label>
-                    <input type="text" name="ibu" class="textfield" placeholder="Masukan Nama Ibu" required>
+                    <input type="text" name="ibu" id="ibu" class="textfield" placeholder="Masukan Nama Ibu">
                 </div>
                 <div class="input-box d-none" id="input-fkk">
                     <label for="fkk">Upload File KK</label>
-                    <input type="file" name="fkk" class="filefield" placeholder="Upload File KK" required>
+                    <input type="file" name="fkk" id="fkk" class="filefield" placeholder="Upload File KK">
                 </div>
                 <div class="input-box d-none" id="input-fktp">
                     <label for="fktp">Upload File KTP</label>
-                    <input type="file" name="fktp" class="filefield" placeholder="Upload File KTP" required>
+                    <input type="file" name="fktp" id="fktp" class="filefield" placeholder="Upload File KTP">
                 </div>
                 <div class="input-box d-none" id="input-ffoto">
                     <label for="ffoto">Upload File Foto 3x4</label>
-                    <input type="file" name="ffoto" class="filefield" placeholder="Upload File Foto 3x4" required>
+                    <input type="file" name="ffoto" id="ffoto" class="filefield" placeholder="Upload File Foto 3x4">
                 </div>
                 <input class="button" type="submit" value="Kirim" name="submitform">
             </form>
@@ -196,6 +196,22 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fkk').classList.remove('d-none');
                 document.getElementById('input-fktp').classList.add('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
+                // set required
+                document.getElementById('nik').removeAttribute('required');
+                document.getElementById('nokk').setAttribute('required','');
+                document.getElementById('nama').setAttribute('required','');
+                document.getElementById('tl').setAttribute('required','');
+                document.getElementById('tk').removeAttribute('required');
+                document.getElementById('jk').setAttribute('required','');
+                document.getElementById('agama').setAttribute('required','');
+                document.getElementById('alamat').setAttribute('required','');
+                document.getElementById('pekerjaan').removeAttribute('required');
+                document.getElementById('wn').setAttribute('required','');
+                document.getElementById('ayah').setAttribute('required','');
+                document.getElementById('ibu').setAttribute('required','');
+                document.getElementById('fkk').setAttribute('required','');
+                document.getElementById('fktp').removeAttribute('required');
+                document.getElementById('ffoto').removeAttribute('required');
             } else if (answer.value == "Surat Keterangan Kematian") {
                 document.getElementById('input-nik').classList.remove('d-none');
                 document.getElementById('input-nokk').classList.remove('d-none');
@@ -212,6 +228,22 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fkk').classList.remove('d-none');
                 document.getElementById('input-fktp').classList.add('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
+                //  set required
+                document.getElementById('nik').setAttribute('required','');
+                document.getElementById('nokk').setAttribute('required','');
+                document.getElementById('nama').setAttribute('required','');
+                document.getElementById('tl').removeAttribute('required');
+                document.getElementById('tk').setAttribute('required','');
+                document.getElementById('jk').setAttribute('required','');
+                document.getElementById('agama').setAttribute('required','');
+                document.getElementById('alamat').setAttribute('required','');
+                document.getElementById('pekerjaan').removeAttribute('required');
+                document.getElementById('wn').removeAttribute('required');
+                document.getElementById('ayah').removeAttribute('required');
+                document.getElementById('ibu').removeAttribute('required');
+                document.getElementById('fkk').setAttribute('required','');
+                document.getElementById('fktp').removeAttribute('required');
+                document.getElementById('ffoto').removeAttribute('required');
             } else if (answer.value == "Surat Keterangan Domisili") {
                 document.getElementById('input-nik').classList.remove('d-none');
                 document.getElementById('input-nokk').classList.remove('d-none');
@@ -228,6 +260,22 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fkk').classList.remove('d-none');
                 document.getElementById('input-fktp').classList.remove('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
+                // set required
+                document.getElementById('nik').setAttribute('required','');
+                document.getElementById('nokk').setAttribute('required','');
+                document.getElementById('nama').setAttribute('required','');
+                document.getElementById('tl').setAttribute('required','');
+                document.getElementById('tk').removeAttribute('required');
+                document.getElementById('jk').setAttribute('required','');
+                document.getElementById('agama').setAttribute('required','');
+                document.getElementById('alamat').setAttribute('required','');
+                document.getElementById('pekerjaan').removeAttribute('required');
+                document.getElementById('wn').setAttribute('required','');
+                document.getElementById('ayah').removeAttribute('required');
+                document.getElementById('ibu').removeAttribute('required');
+                document.getElementById('fkk').setAttribute('required','');
+                document.getElementById('fktp').setAttribute('required','');
+                document.getElementById('ffoto').removeAttribute('required');
             } else if (answer.value == "Surat Keterangan Tidak Mampu") {
                 document.getElementById('input-nik').classList.remove('d-none');
                 document.getElementById('input-nokk').classList.remove('d-none');
@@ -244,22 +292,22 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fkk').classList.remove('d-none');
                 document.getElementById('input-fktp').classList.remove('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
-            } else {
-                document.getElementById('input-nik').classList.remove('d-none');
-                document.getElementById('input-nokk').classList.remove('d-none');
-                document.getElementById('input-nama').classList.remove('d-none');
-                document.getElementById('input-tl').classList.remove('d-none');
-                document.getElementById('input-tk').classList.remove('d-none');
-                document.getElementById('input-jk').classList.remove('d-none');
-                document.getElementById('input-agama').classList.remove('d-none');
-                document.getElementById('input-alamat').classList.remove('d-none');
-                document.getElementById('input-pekerjaan').classList.remove('d-none');
-                document.getElementById('input-wn').classList.remove('d-none');
-                document.getElementById('input-ayah').classList.remove('d-none');
-                document.getElementById('input-ibu').classList.remove('d-none');
-                document.getElementById('input-fkk').classList.remove('d-none');
-                document.getElementById('input-fktp').classList.remove('d-none');
-                document.getElementById('input-ffoto').classList.remove('d-none');
+                // set required
+                document.getElementById('nik').setAttribute('required','');
+                document.getElementById('nokk').setAttribute('required','');
+                document.getElementById('nama').setAttribute('required','');
+                document.getElementById('tl').setAttribute('required','');
+                document.getElementById('tk').removeAttribute('required');
+                document.getElementById('jk').setAttribute('required','');
+                document.getElementById('agama').setAttribute('required','');
+                document.getElementById('alamat').setAttribute('required','');
+                document.getElementById('pekerjaan').setAttribute('required','');
+                document.getElementById('wn').removeAttribute('required');
+                document.getElementById('ayah').removeAttribute('required');
+                document.getElementById('ibu').removeAttribute('required');
+                document.getElementById('fkk').setAttribute('required','');
+                document.getElementById('fktp').setAttribute('required','');
+                document.getElementById('ffoto').removeAttribute('required');
             }
         };
     </script>
