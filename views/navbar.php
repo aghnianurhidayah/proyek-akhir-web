@@ -13,7 +13,7 @@
       </div>
       <div class="nav-items">
         <a href="about.php">Tentang</a>
-        <a href="contact.php">Kontak</a>
+        <a href="menu.php">Menu</a>
         <a href="login.php" class="button">Login</a>
       </div>
     </nav>

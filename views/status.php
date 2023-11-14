@@ -26,6 +26,7 @@
                     <p>Nama Lengkap : </p>
                     <p>Nama Surat : </p>
                     <p>Jenis Surat : </p>
+                    form
                     <div class="status-select">
                         <select required>
                             <option value="Proses" selected>Proses</option>

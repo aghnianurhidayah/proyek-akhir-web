@@ -12,6 +12,7 @@ if (isset($_POST['submitform'])) {
     $agama = $_POST['agama'];
     $alamat = $_POST['alamat'];
     $pekerjaan = $_POST['pekerjaan'];
+    $wn = $_POST['wn'];
     $ayah = $_POST['ayah'];
     $ibu = $_POST['ibu'];
     $fkk = strtolower(end(explode('.', $_FILES['fkk']['name'])));
@@ -29,35 +30,45 @@ if (isset($_POST['submitform'])) {
 
     $tgl_masuk = date('d-m-Y');
 
-    if (move_uploaded_file($tmp_kk, "../img/kk/" . $file_kk) || move_uploaded_file($tmp_ktp, "../img/ktp/" . $file_ktp) || move_uploaded_file($tmp_foto, "../img/foto/" . $file_foto)) {
-        $insert_form = "INSERT INTO forms VALUES ('', '$nosurat', '$nik', '$nokk', '$nama', '$tl', '$tk', '$jk', '$agama', '$alamat', '$pekerjaan', '$ayah', '$ibu', '$file_kk', '$file_ktp', '$file_foto', '$surat', '$status')";
-        $result = $conn->query($insert_form);
+    if (is_uploaded_file($tmp_kk) && file_exists($tmp_kk)) {
+        move_uploaded_file($tmp_kk, "../img/kk/" . $file_kk);
+    } else {
+        $file_kk = '';
+    }
 
-        if ($result) {
+    if (is_uploaded_file($tmp_ktp) && file_exists($tmp_ktp)) {
+        move_uploaded_file($tmp_ktp, "../img/ktp/" . $file_ktp);
+    } else {
+        $file_ktp = '';
+    }
 
-            $fk_form_id = $conn->insert_id;
-            $insert_surat = "INSERT INTO surat VALUES ('$fk_form_id', '$nik', 'Surat Keterangan', '$tgl_masuk', '0')";
-            $result = $conn->query($insert_surat);
+    if (is_uploaded_file($tmp_foto) && file_exists($tmp_foto)) {
+        move_uploaded_file($tmp_foto, "../img/foto/" . $file_foto);
+    } else {
+        $file_foto = '';
+    }
 
-            echo "
+    $insert_form = "INSERT INTO forms VALUES ('', '$nosurat', '$nik', '$nokk', '$nama', '$tl', '$tk', '$jk', '$agama', '$alamat', '$pekerjaan', '$wn', '$ayah', '$ibu', '$file_kk', '$file_ktp', '$file_foto', '$surat', '$status')";
+    $result = $conn->query($insert_form);
+
+    if ($result) {
+
+        $fk_form_id = $conn->insert_id;
+        $insert_surat = "INSERT INTO surat VALUES ('$fk_form_id', '$nik', 'Surat Keterangan', '$tgl_masuk', '0')";
+        $result = $conn->query($insert_surat);
+
+        echo "
                 <script>
                     alert('Formulir Berhasil Diisi!');
                     document.location.href = 'hist.php';
                 </script>";
-        } else {
-            echo "
+    } else {
+        echo "
                 <script>
                     alert('Formulir Gagal Diisi!');
                 </script>";
-        }
-    } else {
-        echo "
-            <script>
-                alert('Formulir Gagal Diisi!');
-            </script>";
     }
 }
-
 
 ?>
 
@@ -83,7 +94,7 @@ if (isset($_POST['submitform'])) {
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="input-box">
                     <label for="surat">Pilih Surat</label>
-                    <select name="surat" onchange="getValue(this)">
+                    <select name="surat" onchange="getValue(this)" required>
                         <option value="">Pilih Surat</option>
                         <option value="Surat Keterangan Kelahiran">Surat Keterangan Kelahiran</option>
                         <option value="Surat Keterangan Kematian">Surat Keterangan Kematian</option>
@@ -113,14 +124,14 @@ if (isset($_POST['submitform'])) {
                 </div>
                 <div class="input-box d-none" id="input-jk">
                     <label for="jk">Jenis Kelamin</label>
-                    <select name="jk">
+                    <select name="jk" required>
                         <option value="Laki-Laki">Laki-Laki</option>
                         <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
                 <div class="input-box d-none" id="input-agama">
                     <label for="agama">Agama</label>
-                    <select name="agama">
+                    <select name="agama" required>
                         <option value="Islam">Islam</option>
                         <option value="Kristen">Kristen</option>
                         <option value="Katolik">Katolik</option>
@@ -151,15 +162,15 @@ if (isset($_POST['submitform'])) {
                 </div>
                 <div class="input-box d-none" id="input-fkk">
                     <label for="fkk">Upload File KK</label>
-                    <input type="file" name="fkk" class="filefield" placeholder="Upload File KK">
+                    <input type="file" name="fkk" class="filefield" placeholder="Upload File KK" required>
                 </div>
                 <div class="input-box d-none" id="input-fktp">
                     <label for="fktp">Upload File KTP</label>
-                    <input type="file" name="fktp" class="filefield" placeholder="Upload File KTP">
+                    <input type="file" name="fktp" class="filefield" placeholder="Upload File KTP" required>
                 </div>
                 <div class="input-box d-none" id="input-ffoto">
                     <label for="ffoto">Upload File Foto 3x4</label>
-                    <input type="file" name="ffoto" class="filefield" placeholder="Upload File Foto 3x4">
+                    <input type="file" name="ffoto" class="filefield" placeholder="Upload File Foto 3x4" required>
                 </div>
                 <input class="button" type="submit" value="Kirim" name="submitform">
             </form>
@@ -233,6 +244,22 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fkk').classList.remove('d-none');
                 document.getElementById('input-fktp').classList.remove('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
+            } else {
+                document.getElementById('input-nik').classList.remove('d-none');
+                document.getElementById('input-nokk').classList.remove('d-none');
+                document.getElementById('input-nama').classList.remove('d-none');
+                document.getElementById('input-tl').classList.remove('d-none');
+                document.getElementById('input-tk').classList.remove('d-none');
+                document.getElementById('input-jk').classList.remove('d-none');
+                document.getElementById('input-agama').classList.remove('d-none');
+                document.getElementById('input-alamat').classList.remove('d-none');
+                document.getElementById('input-pekerjaan').classList.remove('d-none');
+                document.getElementById('input-wn').classList.remove('d-none');
+                document.getElementById('input-ayah').classList.remove('d-none');
+                document.getElementById('input-ibu').classList.remove('d-none');
+                document.getElementById('input-fkk').classList.remove('d-none');
+                document.getElementById('input-fktp').classList.remove('d-none');
+                document.getElementById('input-ffoto').classList.remove('d-none');
             }
         };
     </script>
