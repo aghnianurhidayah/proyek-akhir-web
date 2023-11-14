@@ -18,11 +18,23 @@
         <div class="content">
             <div class="left">
                 <div class="container">
-                    <h3>Status</h3>
+                    <h3>Keterangan Surat</h3>
                 </div>
                 <div class="main">
-                    <p>Username: </p>
-                    <p>NIK: </p>
+                    <br>
+                    <p>NIK : </p>
+                    <p>Nama Lengkap : </p>
+                    <p>Nama Surat : </p>
+                    <p>Jenis Surat : </p>
+                    <div class="status-select">
+                        <select required>
+                            <option value="Proses" selected>Proses</option>
+                            <option value="Setuju">Disetujui</option>
+                            <option value="Tolak">Ditolak</option>
+                        </select>
+                        <br><br>
+                        <input type="submit" value="Submit">
+                    </div>
                 </div>
             </div>
             <div class="right">
