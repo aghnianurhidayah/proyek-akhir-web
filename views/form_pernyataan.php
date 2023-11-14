@@ -7,7 +7,6 @@ if (isset($_POST['submitform'])) {
     $nokk = $_POST['nokk'];
     $nama = $_POST['nama'];
     $tl = $_POST['tl'];
-    $tk = $_POST['tk'];
     $jk = $_POST['jk'];
     $agama = $_POST['agama'];
     $alamat = $_POST['alamat'];
@@ -36,7 +35,7 @@ if (isset($_POST['submitform'])) {
         if ($result) {
 
             $fk_form_id = $conn->insert_id;
-            $insert_surat = "INSERT INTO surat VALUES ('$fk_form_id', '$nik', 'Surat Keterangan', '$tgl_masuk', '0')";
+            $insert_surat = "INSERT INTO surat VALUES ('$fk_form_id', '$nik', 'Surat Pernyataan', '$tgl_masuk', '0')";
             $result = $conn->query($insert_surat);
 
             echo "
@@ -67,7 +66,7 @@ if (isset($_POST['submitform'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-Surat | Formulir Keterangan</title>
+    <title>e-Surat | Formulir Pernyataan</title>
 
     <link rel="stylesheet" href="../styles/style.css">
 </head>
@@ -85,10 +84,8 @@ if (isset($_POST['submitform'])) {
                     <label for="surat">Pilih Surat</label>
                     <select name="surat" onchange="getValue(this)">
                         <option value="">Pilih Surat</option>
-                        <option value="Surat Keterangan Kelahiran">Surat Keterangan Kelahiran</option>
-                        <option value="Surat Keterangan Kematian">Surat Keterangan Kematian</option>
-                        <option value="Surat Keterangan Domisili">Surat Keterangan Domisili</option>
-                        <option value="Surat Keterangan Tidak Mampu">Surat Keterangan Tidak Mampu</option>
+                        <option value="Surat Pernyataan Tidak Memiliki Akte Kelahiran">Surat Pernyataan Tidak Memiliki Akte Kelahiran</option>
+                        <option value="Surat Pernyataan Janda/Duda">Surat Pernyataan Janda/Duda</option>
                     </select>
                 </div>
                 <div class="input-box d-none" id="input-nik">
@@ -106,10 +103,6 @@ if (isset($_POST['submitform'])) {
                 <div class="input-box d-none" id="input-tl">
                     <label for="tl">Tanggal Lahir</label>
                     <input type="date" name="tl" class="textfield" placeholder="Masukan Tanggal Lahir" required>
-                </div>
-                <div class="input-box d-none" id="input-tk">
-                    <label for="tl">Tanggal Kematian</label>
-                    <input type="date" name="tk" class="textfield" placeholder="Masukan Tanggal Kematian" required>
                 </div>
                 <div class="input-box d-none" id="input-jk">
                     <label for="jk">Jenis Kelamin</label>
@@ -169,12 +162,11 @@ if (isset($_POST['submitform'])) {
 
     <script>
         function getValue(answer) {
-            if (answer.value == "Surat Keterangan Kelahiran") {
+            if (answer.value == "Surat Pernyataan Tidak Memiliki Akte Kelahiran") {
                 document.getElementById('input-nik').classList.add('d-none');
                 document.getElementById('input-nokk').classList.remove('d-none');
                 document.getElementById('input-nama').classList.remove('d-none');
                 document.getElementById('input-tl').classList.remove('d-none');
-                document.getElementById('input-tk').classList.add('d-none');
                 document.getElementById('input-jk').classList.remove('d-none');
                 document.getElementById('input-agama').classList.remove('d-none');
                 document.getElementById('input-alamat').classList.remove('d-none');
@@ -185,28 +177,11 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fkk').classList.remove('d-none');
                 document.getElementById('input-fktp').classList.add('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
-            } else if (answer.value == "Surat Keterangan Kematian") {
-                document.getElementById('input-nik').classList.remove('d-none');
-                document.getElementById('input-nokk').classList.remove('d-none');
-                document.getElementById('input-nama').classList.remove('d-none');
-                document.getElementById('input-tl').classList.add('d-none');
-                document.getElementById('input-tk').classList.remove('d-none');
-                document.getElementById('input-jk').classList.remove('d-none');
-                document.getElementById('input-agama').classList.remove('d-none');
-                document.getElementById('input-alamat').classList.remove('d-none');
-                document.getElementById('input-pekerjaan').classList.add('d-none');
-                document.getElementById('input-wn').classList.add('d-none');
-                document.getElementById('input-ayah').classList.add('d-none');
-                document.getElementById('input-ibu').classList.add('d-none');
-                document.getElementById('input-fkk').classList.remove('d-none');
-                document.getElementById('input-fktp').classList.add('d-none');
-                document.getElementById('input-ffoto').classList.add('d-none');
-            } else if (answer.value == "Surat Keterangan Domisili") {
+            } else if (answer.value == "Surat Pernyataan Janda/Duda") {
                 document.getElementById('input-nik').classList.remove('d-none');
                 document.getElementById('input-nokk').classList.remove('d-none');
                 document.getElementById('input-nama').classList.remove('d-none');
                 document.getElementById('input-tl').classList.remove('d-none');
-                document.getElementById('input-tk').classList.add('d-none');
                 document.getElementById('input-jk').classList.remove('d-none');
                 document.getElementById('input-agama').classList.remove('d-none');
                 document.getElementById('input-alamat').classList.remove('d-none');
@@ -214,23 +189,7 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-wn').classList.remove('d-none');
                 document.getElementById('input-ayah').classList.add('d-none');
                 document.getElementById('input-ibu').classList.add('d-none');
-                document.getElementById('input-fkk').classList.remove('d-none');
-                document.getElementById('input-fktp').classList.remove('d-none');
-                document.getElementById('input-ffoto').classList.add('d-none');
-            } else if (answer.value == "Surat Keterangan Tidak Mampu") {
-                document.getElementById('input-nik').classList.remove('d-none');
-                document.getElementById('input-nokk').classList.remove('d-none');
-                document.getElementById('input-nama').classList.remove('d-none');
-                document.getElementById('input-tl').classList.remove('d-none');
-                document.getElementById('input-tk').classList.add('d-none');
-                document.getElementById('input-jk').classList.remove('d-none');
-                document.getElementById('input-agama').classList.remove('d-none');
-                document.getElementById('input-alamat').classList.remove('d-none');
-                document.getElementById('input-pekerjaan').classList.remove('d-none');
-                document.getElementById('input-wn').classList.add('d-none');
-                document.getElementById('input-ayah').classList.add('d-none');
-                document.getElementById('input-ibu').classList.add('d-none');
-                document.getElementById('input-fkk').classList.remove('d-none');
+                document.getElementById('input-fkk').classList.add('d-none');
                 document.getElementById('input-fktp').classList.remove('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
             }
