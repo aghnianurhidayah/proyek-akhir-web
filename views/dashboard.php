@@ -28,9 +28,6 @@
                     <input type="text" placeholder="Search">
                 </div>
             </div>
-            <div class="card-container">
-                <h1><a href="../views/menu.php"><button class="add-btn">Create</button></a></h1><br>
-            </div>
             <table>
                 <thead>
                     <tr>
