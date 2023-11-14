@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../styles/dashboard.css" />
+    <link rel="stylesheet" href="../styles/status.css" />
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
 </head>
 
@@ -16,31 +16,20 @@
 
     <section class="main-content">
         <div class="content">
-            <div class="header-wrapper">
-                <div class="header">
-                    <h1>Status</h1>
+            <div class="left">
+                <div class="container">
+                    <h3>Status</h3>
+                </div>
+                <div class="main">
+                    <p>Username: </p>
+                    <p>NIK: </p>
                 </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Surat</th>
-                        <th>Jenis Surat</th>
-                        <th>Tanggal Masuk</th>
-                        <th>Tanggal Keluar</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tbody>
-            </table>
+            <div class="right">
+                <div class="container">
+                    <h3>Preview File</h3>
+                </div>
+            </div>
         </div>
     </section>
 
