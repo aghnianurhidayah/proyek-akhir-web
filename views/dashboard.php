@@ -2,11 +2,6 @@
 session_start();
 require "../connect/db_connect.php";
 
-if (!isset($_SESSION['name'])) {
-    header("Location: login.php");
-    exit();
-}
-
 $sql_form = mysqli_query($conn, "SELECT * FROM forms JOIN surat ON forms.form_id = surat.fk_form_id");
 
 $forms = [];
@@ -14,7 +9,10 @@ while ($row = mysqli_fetch_assoc($sql_form)) {
     $forms[] = $row;
 }
 
-if ($_SESSION['name'] == "admin"){
+if (!(isset($_SESSION['role']))) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +80,3 @@ if ($_SESSION['name'] == "admin"){
 </body>
 
 </html>
-
-<?php
-}
-?>

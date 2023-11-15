@@ -2,29 +2,36 @@
 session_start();
 require "../connect/db_connect.php";
 
-if (isset($_SESSION['name'])) {
+if (isset($_SESSION['role'])) {
     header("Location: menu.php");
     exit();
-}
+} 
+// else if ($_SESSION['name'] == "admin"){
+//     header("Location: dashboard.php");
+//     exit();
+// }
 
 if (isset($_POST['login'])) {
     $nik = $_POST['nik'];
     $name = $_POST['name'];
     $password = $_POST['password'];
 
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE nik='$nik'");
-    if (mysqli_num_rows($result) === 1) {
-        $row = mysqli_fetch_assoc($result);
-        if ($row['nama'] == "admin" && $row['password'] == "admin123") {
-            $_SESSION['name'] = "admin";
-            header("Location: dashboard.php");
-        } else {
+    if ($nik == "123" && $name == "admin" && $password == "admin123") {
+        $_SESSION['role'] = "admin";
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        $result = mysqli_query($conn, "SELECT * FROM users WHERE nik='$nik'");
+        if (mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
             if ($nik == $row['nik']) {
                 if ($name == $row['nama']) {
                     if (password_verify($password, $row['password'])) {
+                        $_SESSION['role'] = "user";
                         $_SESSION['name'] = $row['nama'];
                         $_SESSION['nik'] = $row['nik'];
                         header("Location: menu.php");
+                        exit();
                     } else {
                         echo "<script>alert('Password tidak sesuai')</script>";
                     }
@@ -32,9 +39,9 @@ if (isset($_POST['login'])) {
                     echo "<script>alert('Nama tidak sesuai')</script>";
                 }
             }
+        } else {
+            echo "<script>alert('Akun Anda belum terdaftar')</script>";
         }
-    } else {
-        echo "<script>alert('Akun Anda belum terdaftar')</script>";
     }
 }
 
@@ -92,6 +99,8 @@ if (isset($_POST['login'])) {
         <input class="button" type="submit" value="Login" name="login">
         <p class="link">Belum memiliki akun? <a href="signup.php">Daftar Akun</a></p>
     </form>
+
+    <script src="../scripts/script.js"></script>
 </body>
 
 </html>

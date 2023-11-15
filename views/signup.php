@@ -2,7 +2,7 @@
 session_start();
 require "../connect/db_connect.php";
 
-if (isset($_SESSION['name'])) {
+if (isset($_SESSION['role'])) {
     header("Location: login.php");
     exit();
 }
@@ -81,13 +81,13 @@ if (isset($_POST['signup'])) {
     <form action="signup.php" method="post">
         <h2>Buat Akun</h2>
         <label>NIK</label>
-        <input type="text" onkeypress="isInputNumber(event)" name="nik" maxlength="16" placeholder="Masukan NIK" required>
+        <input type="text" onkeypress="isInputNumber(event)" name="nik" minlength="16" maxlength="16" placeholder="Masukan NIK" required>
 
         <label>Nama</label>
         <input type="text" name="name" placeholder="Masukan Nama" required>
 
         <label>Password</label>
-        <input type="password" name="password" placeholder="Masukan Password" required>
+        <input type="password" name="password" pattern=".{8,12}" title="8 charachters minimum" placeholder="Masukan Password" required>
 
         <label>Konfirmasi Password</label>
         <input type="password" name="cpassword" placeholder="Masukan Password" required>

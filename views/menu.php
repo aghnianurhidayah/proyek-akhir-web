@@ -2,7 +2,7 @@
 session_start();
 require "../connect/db_connect.php";
 
-if (!isset($_SESSION['name'])) {
+if (!isset($_SESSION['role'])) {
     header("Location: login.php");
     exit();
 }

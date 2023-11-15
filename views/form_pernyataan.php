@@ -2,7 +2,7 @@
 session_start();
 require "../connect/db_connect.php";
 
-if (!isset($_SESSION['name'])) {
+if (!isset($_SESSION['role'])) {
     header("Location: login.php");
     exit();
 }
@@ -112,7 +112,7 @@ if (isset($_POST['submitform'])) {
                 </div>
                 <div class="input-box d-none" id="input-nokk">
                     <label for="nokk">No KK</label>
-                    <input type="number" name="nokk" id="nokk" onkeypress="isInputNumber(event)" class="textfield" placeholder="Masukan No. KK" required>
+                    <input type="number" name="nokk" id="nokk" onkeypress="isInputNumber(event)" minlength="16" maxlength="16" class="textfield" placeholder="Masukan No. KK" required>
                 </div>
                 <div class="input-box d-none" id="input-nama">
                     <label for="nama">Nama Lengkap</label>
@@ -177,7 +177,7 @@ if (isset($_POST['submitform'])) {
         </div>
     </div>
 
-
+    <script src="../scripts/script.js"></script>
     <script>
         function getValue(answer) {
             if (answer.value == "Surat Pernyataan Tidak Memiliki Akte Kelahiran") {

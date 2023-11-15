@@ -2,6 +2,11 @@
 session_start();
 require "../connect/db_connect.php";
 
+if (!isset($_SESSION['role'])) {
+    header("Location: login.php");
+    exit();
+}
+
 $form_id = $_GET['form_id'];
 $get = mysqli_query($conn, "SELECT * FROM forms WHERE form_id = $form_id");
 $form = [];
@@ -10,11 +15,6 @@ while ($row = mysqli_fetch_assoc($get)) {
     $form[] = $row;
 }
 $form = $form[0];
-
-if (!isset($_SESSION['name'])) {
-    header("Location: login.php");
-    exit();
-}
 
 if (isset($_POST['editform'])) {
     $nik = $_POST['nik'];

@@ -15,7 +15,7 @@
 <body>
   <nav>
     <div class="nav-logo">
-      <h3>e-Surat</h3>
+      <h3>SukaMaju</h3>
     </div>
     <div class="nav-items">
       <?php
