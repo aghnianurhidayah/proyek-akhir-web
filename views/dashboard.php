@@ -1,3 +1,22 @@
+<?php
+session_start();
+require "../connect/db_connect.php";
+
+if (!isset($_SESSION['name'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$sql_form = mysqli_query($conn, "SELECT * FROM forms JOIN surat ON forms.form_id = surat.fk_form_id");
+
+$forms = [];
+while ($row = mysqli_fetch_assoc($sql_form)) {
+    $forms[] = $row;
+}
+
+if ($_SESSION['name'] == "admin"){
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +32,7 @@
 <body>
 
     <?php include 'sidebar.php'; ?>
-    
+
     <section class="main-content">
         <div class="content">
             <div class="header-wrapper">
@@ -37,20 +56,23 @@
                         <th>Jenis Surat</th>
                         <th>Tanggal Masuk</th>
                         <th>Tanggal Keluar</th>
-                        <th>Aksi</th>
+                        <th>Keterangan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>
-                        <a href=""><i class="bx bxs-edit" style="font-size: 25px; color: #ffc801"></i></a>
-                        <a href=""><i class="bx bxs-trash" style="font-size: 25px; color: #DF2E38"></i></a>
-                    </td>
+                    <?php $i = 1; foreach($forms as $form) :?>
+                        <tr>
+                            <td><?= $i; ?></td>
+                            <td><?= $form['no_surat'] ?></td>
+                            <td><?= $form['nama_surat'] ?></td>
+                            <td><?= $form['jenis_surat'] ?></td>
+                            <td><?= $form['tgl_masuk'] ?></td>
+                            <td><?= $form['tgl_keluar'] ?></td>
+                            <td>
+                                <a href="../views/status.php?form_id=<?= $form['form_id'] ?>"><button><i class='bx bx-show'></i> Lihat Status </button></a>
+                            </td>
+                        </tr>
+                    <?php $i++; endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -60,3 +82,7 @@
 </body>
 
 </html>
+
+<?php
+}
+?>

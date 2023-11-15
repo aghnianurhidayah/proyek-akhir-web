@@ -81,7 +81,7 @@ if (isset($_POST['signup'])) {
     <form action="signup.php" method="post">
         <h2>Buat Akun</h2>
         <label>NIK</label>
-        <input type="number" name="nik" placeholder="Masukan NIK" maxlength="16" required>
+        <input type="text" onkeypress="isInputNumber(event)" name="nik" maxlength="16" placeholder="Masukan NIK" required>
 
         <label>Nama</label>
         <input type="text" name="name" placeholder="Masukan Nama" required>
@@ -95,6 +95,8 @@ if (isset($_POST['signup'])) {
         <input class="button" type="submit" value="Daftar" name="signup">
         <p class="link">Sudah memiliki akun? <a href="login.php">Login</a></p>
     </form>
+
+    <script src="../scripts/script.js"></script>
 </body>
 
 </html>

@@ -11,6 +11,7 @@ if (!isset($_SESSION['name'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,12 +19,13 @@ if (!isset($_SESSION['name'])) {
 
     <link rel="stylesheet" href="../styles/userstyle.css">
 </head>
+
 <body>
     <?php include 'navbar.php'; ?>
-    
+
     <div class="menu">
         <div class="greeting-text">
-            <p>Selamat Datang, <?php echo $_SESSION['name']?>!</p>
+            <p>Selamat Datang, <?php echo $_SESSION['name'] ?>!</p>
         </div>
         <div class="menu-box">
             <a href="form_keterangan.php">
@@ -53,4 +55,5 @@ if (!isset($_SESSION['name'])) {
         </div>
     </div>
 </body>
+
 </html>

@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../views/index.php" class="nav-link">
+                        <a href="logout.php" class="nav-link">
                             <i class="bx bx-log-out icon"></i>
                             <span class="link">Logout</span>
                         </a>

@@ -16,6 +16,7 @@ if (isset($_POST['login'])) {
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         if ($row['nama'] == "admin" && $row['password'] == "admin123") {
+            $_SESSION['name'] = "admin";
             header("Location: dashboard.php");
         } else {
             if ($nik == $row['nik']) {
@@ -80,7 +81,7 @@ if (isset($_POST['login'])) {
     <form action="login.php" method="post">
         <h2>Login</h2>
         <label>NIK</label>
-        <input type="number" name="nik" placeholder="Masukan NIK" required>
+        <input type="text" name="nik" onkeypress="isInputNumber(event)" placeholder="Masukan NIK" required>
 
         <label>Nama</label>
         <input type="text" name="name" placeholder="Masukan Nama" required>

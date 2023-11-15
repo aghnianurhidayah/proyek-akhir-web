@@ -8,12 +8,11 @@ if (!isset($_SESSION['name'])) {
 }
 
 $get_nik = $_SESSION['nik'];
+$sql_form = mysqli_query($conn, "SELECT * FROM forms JOIN surat ON forms.form_id = surat.fk_form_id WHERE forms.nik = $get_nik");
 
-$sql_surat = mysqli_query($conn, "SELECT * FROM surat WHERE nik = $get_nik");
-
-$surat = [];
-while ($row = mysqli_fetch_assoc($sql_surat)) {
-    $surat[] = $row;
+$forms = [];
+while ($row = mysqli_fetch_assoc($sql_form)) {
+    $forms[] = $row;
 }
 ?>
 
@@ -50,46 +49,34 @@ while ($row = mysqli_fetch_assoc($sql_surat)) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1;
-                    foreach ($surat as $srt) :
-                        $sql_form = mysqli_query($conn, "SELECT * FROM forms WHERE nik = $get_nik");
-                        $form = [];
-                        while ($row = mysqli_fetch_assoc($sql_form)) {
-                            $form[] = $row;
-                        }
-                        $j = 1;
-                        foreach ($form as $f) :
-                    ?>
-                            <tr>
-                                <td><?= $i; ?></td>
-                                <td><?= $f['nama_surat'] ?></td>
-                                <td><?= $srt['jenis_surat'] ?></td>
-                                <td><?= $srt['tgl_masuk'] ?></td>
-                                <td><?= $srt['tgl_keluar'] ?></td>
-                                <td><?= $f['status'] ?></td>
-                                <td>
-                                    <?php
-                                    if ($f['status'] == "Proses") {
-                                    ?>
-                                        <div class="action">
-                                            <a href="editform.php?form_id=<?= $f['form_id'] ?>"><i class="bx bxs-edit" style="font-size: 25px; color: #ffc801"></i></a>
-                                            <a href="deleteform.php?form_id=<?= $f['form_id'] ?>"><i class="bx bxs-trash" style="font-size: 25px; color: #DF2E38"></i></a>
-                                        </div>
-                                    <?php
-                                    } else if ($f['status'] == "Disetujui") {
-                                    ?>
-                                        <div class="action">
-                                            <a href="../surat/<?= $f['nama_surat'] ?>.php?form_id=<?= $f['form_id'] ?>" target="_blank"><button>Unduh</button></a>
-                                        </div>
-                                    <?php
+                    <?php $i = 1; foreach($forms as $form) :?>
+                        <tr>
+                            <td><?= $i; ?></td>
+                            <td><?= $form['nama_surat'] ?></td>
+                            <td><?= $form['jenis_surat'] ?></td>
+                            <td><?= $form['tgl_masuk'] ?></td>
+                            <td><?= $form['tgl_keluar'] ?></td>
+                            <td><?= $form['status'] ?></td>
+                            <td>
+                                <?php
+                                    if ($form['status'] == "Proses"){
+                                ?>
+                                    <div class="action">
+                                        <a href="editform.php?form_id=<?= $form['form_id'] ?>"><i class="bx bxs-edit" style="font-size: 25px; color: #ffc801"></i></a>
+                                        <a href="deleteform.php?form_id=<?= $form['form_id'] ?>"><i class="bx bxs-trash" style="font-size: 25px; color: #DF2E38"></i></a>
+                                    </div>
+                                <?php
+                                    } else if ($form['status'] == "Setuju") {
+                                ?>
+                                    <div class="action">
+                                        <a href="../surat/<?= $form['nama_surat'] ?>.php?form_id=<?= $form['form_id'] ?>" target="_blank"><button>Unduh</button></a>
+                                    </div>
+                                <?php 
                                     }
-                                    ?>
-                                </td>
-                            </tr>
-                        <?php $j++;
-                        endforeach; ?>
-                    <?php $i++;
-                    endforeach; ?>
+                                ?>
+                            </td>
+                        </tr>
+                    <?php $i++; endforeach; ?>    
                 </tbody>
             </table>
         </div>

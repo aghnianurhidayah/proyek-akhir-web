@@ -1,3 +1,43 @@
+<?php
+session_start();
+require "../connect/db_connect.php";
+
+$form_id = $_GET['form_id'];
+$get = mysqli_query($conn, "SELECT * FROM forms JOIN surat ON forms.form_id = surat.fk_form_id WHERE form_id = $form_id");
+$form = [];
+
+while ($row = mysqli_fetch_assoc($get)) {
+    $form[] = $row;
+}
+$form = $form[0];
+
+if (!isset($_SESSION['name'])) {
+    header("Location: login.php");
+    exit();
+}
+
+if (isset($_POST['editform'])) {
+    $status = $_POST['status'];
+
+    $update_form = "UPDATE forms SET status = '$status' WHERE form_id = '$form_id'";
+    $result = $conn->query($update_form);
+
+    if ($result) {
+        echo "
+                <script>
+                    alert('Status Berhasil Diubah!');
+                    document.location.href = 'hist.php';
+                </script>";
+    } else {
+        echo "
+                <script>
+                    alert('Status Gagal Diubah!');
+                </script>";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,19 +62,20 @@
                 </div>
                 <div class="main">
                     <br>
-                    <p>NIK : </p>
-                    <p>Nama Lengkap : </p>
-                    <p>Nama Surat : </p>
-                    <p>Jenis Surat : </p>
-                    <form action="">
+                    <p>NIK          : <?= $form['nik']?></p>
+                    <p>Nama Lengkap : <?= $form['nama']?></p>
+                    <p>Nama Surat   : <?= $form['nama_surat']?></p>
+                    <p>Jenis Surat  : <?= $form['jenis_surat']?></p>
+                    <form action="" method="post">
                         <div class="status-select">
-                            <select required>
+                            <!-- <label for="surat">Status</label> -->
+                            <select name="surat" id="surat" required>
                                 <option value="Proses" selected>Proses</option>
                                 <option value="Setuju">Disetujui</option>
                                 <option value="Tolak">Ditolak</option>
                             </select>
                             <br><br>
-                            <input type="submit" value="Submit">
+                            <input class="button" type="submit" value="Kirim">
                         </div>
                     </form>
                 </div>
@@ -44,7 +85,7 @@
                     <h3>Preview File</h3>
                 </div>
                 <div class="display">
-                <iframe src="../surat/Surat Pengantar Nikah.php" frameborder="0"></iframe>
+                    <iframe src="../surat/<?= $form['nama_surat']?>.php?form_id=<?= $form['form_id']?>" frameborder="0"></iframe>
                 </div>
             </div>
         </div>

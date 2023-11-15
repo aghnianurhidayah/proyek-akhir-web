@@ -27,9 +27,9 @@ if (isset($_POST['submitform'])) {
     $surat = $_POST['surat'];
     $status = "Proses";
 
-    $file_kk = "kk_$surat_$nama.$fkk";
-    $file_ktp = "ktp_$surat_$nama.$fktp";
-    $file_foto = "foto_$surat_$nama.$ffoto";
+    $file_kk = "kk.$surat.$nama.$fkk";
+    $file_ktp = "ktp$.surat.$nama.$fktp";
+    $file_foto = "foto.$surat.$nama.$ffoto";
     $tmp_kk = $_FILES['fkk']['tmp_name'];
     $tmp_ktp = $_FILES['fktp']['tmp_name'];
     $tmp_foto = $_FILES['ffoto']['tmp_name'];
@@ -108,11 +108,11 @@ if (isset($_POST['submitform'])) {
                 </div>
                 <div class="input-box d-none" id="input-nik">
                     <label for="nik">NIK</label>
-                    <input type="number" name="nik" id="nik" class="textfield" placeholder="Masukan NIK" required>
+                    <input type="number" name="nik" id="nik" class="textfield" value="<?= $_SESSION['nik'] ?>" disabled>
                 </div>
                 <div class="input-box d-none" id="input-nokk">
                     <label for="nokk">No KK</label>
-                    <input type="number" name="nokk" id="nokk" class="textfield" placeholder="Masukan No. KK" required>
+                    <input type="number" name="nokk" id="nokk" onkeypress="isInputNumber(event)" class="textfield" placeholder="Masukan No. KK" required>
                 </div>
                 <div class="input-box d-none" id="input-nama">
                     <label for="nama">Nama Lengkap</label>

@@ -1,84 +1,85 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --primary-color: #ffc801;
-    --secondary-color: #2c444e;
-    --background-color: #eaeaea;
-    --hover-color: #739072;
-    --text-color: #6d6875;
+  --primary-color: #ffc801;
+  --secondary-color: #2c444e;
+  --background-color: #eaeaea;
+  --hover-color: #739072;
+  --text-color: #6d6875;
 }
 
 .dark-mode {
-    --primary-color: #eabe20;
-    --secondary-color: #3a3b3c;
-    --background-color: #242526;
-    --hover-color: #aeaeae;
-    --text-color: #;
+  --primary-color: #eabe20;
+  --secondary-color: #3a3b3c;
+  --background-color: #242526;
+  --hover-color: #aeaeae;
+  --text-color: #;
 }
 
 body {
-    min-height: 100%;
-    background: var(--background-color);
-    font-family: "Montserrat", sans-serif;
-    transition: all 0.5s ease;
+  min-height: 100%;
+  background: var(--background-color);
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.5s ease;
 }
 
 .content {
-    display: flex;
-    grid-gap: 100px;
-    background-color: var(--background-color);
-    padding: 10px 14px;
-    margin-top: 75px;
+  display: flex;
+  justify-content: space-around;
+  /* grid-gap: 100px; */
+  background-color: var(--background-color);
+  padding: 10px 14px;
+  margin-top: 75px;
 }
 
-.container{
-    min-width: 500px;
-    margin-top: 10px;
+.container {
+  min-width: 500px;
+  margin-top: 10px;
 }
 
-.left{
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 10px 14px;
-    border-radius: 10px;
-    height: calc(100vh / 2);
-    margin-top: 10px;
+.left {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 10px 14px;
+  border-radius: 10px;
+  height: calc(100vh / 2);
+  margin-top: 10px;
 }
 
-.left p{
-    padding: 8px;
+.left p {
+  padding: 8px;
 }
 
-.right{
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 10px 14px;
-    border-radius: 10px;
-    height: calc(100vh - 20vh);
-    margin-top: 10px;
+.right {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 10px 14px;
+  border-radius: 10px;
+  height: calc(100vh - 20vh);
+  margin-top: 10px;
 }
 
-.status-select{
-    min-width: 350px;
+.status-select {
+  min-width: 350px;
 }
 
 select {
-    margin-top: 10px;
-    margin-left: 5px;
-    appearance: none;
-    width: 50%;
-    font-size: 15px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #caced1;
-    border-radius: 0.25rem;
-    color: #000;
-    cursor: pointer;
-  }
+  margin-top: 10px;
+  margin-left: 5px;
+  appearance: none;
+  width: 50%;
+  font-size: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
 
 .custom-select::before,
 .custom-select::after {
@@ -101,4 +102,15 @@ select {
   border-right: var(--size) solid transparent;
   border-top: var(--size) solid black;
   top: 55%;
+}
+
+.status-select .button {
+  padding: 10px 30px;
+  background-color: var(--primary-color);
+  border-style: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  color: var(--secondary-color);
+  cursor: pointer;
 }
