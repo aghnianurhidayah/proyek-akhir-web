@@ -291,6 +291,10 @@ td {
   cursor: pointer;
 }
 
+.hist-table .action {
+  text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
   nav {
     padding: 40px 70px;

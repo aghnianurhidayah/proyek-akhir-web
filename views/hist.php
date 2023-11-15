@@ -26,6 +26,7 @@ while ($row = mysqli_fetch_assoc($sql_surat)) {
     <title>e-Surat | Riwayat Surat</title>
 
     <link rel="stylesheet" href="../styles/userstyle.css">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -45,7 +46,7 @@ while ($row = mysqli_fetch_assoc($sql_surat)) {
                         <th>Tanggal Masuk</th>
                         <th>Tanggal Keluar</th>
                         <th>Status</th>
-                        <th>Surat</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,7 +68,22 @@ while ($row = mysqli_fetch_assoc($sql_surat)) {
                                 <td><?= $srt['tgl_keluar'] ?></td>
                                 <td><?= $f['status'] ?></td>
                                 <td>
-                                    <a href="../surat/<?= $f['nama_surat'] ?>.php?form_id=<?= $f['form_id'] ?>" target="_blank"><button>Unduh</button></a>
+                                    <?php
+                                    if ($f['status'] == "Proses") {
+                                    ?>
+                                        <div class="action">
+                                            <a href="editform.php?form_id=<?= $f['form_id'] ?>"><i class="bx bxs-edit" style="font-size: 25px; color: #ffc801"></i></a>
+                                            <a href="deleteform.php?form_id=<?= $f['form_id'] ?>"><i class="bx bxs-trash" style="font-size: 25px; color: #DF2E38"></i></a>
+                                        </div>
+                                    <?php
+                                    } else if ($f['status'] == "Disetujui") {
+                                    ?>
+                                        <div class="action">
+                                            <a href="../surat/<?= $f['nama_surat'] ?>.php?form_id=<?= $f['form_id'] ?>" target="_blank"><button>Unduh</button></a>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </td>
                             </tr>
                         <?php $j++;

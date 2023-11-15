@@ -27,9 +27,9 @@ if (isset($_POST['submitform'])) {
     $surat = $_POST['surat'];
     $status = "Proses";
 
-    $file_kk = "kk.$nama.$fkk";
-    $file_ktp = "ktp.$nama.$fktp";
-    $file_foto = "foto.$nama.$ffoto";
+    $file_kk = "kk_$surat_$nama.$fkk";
+    $file_ktp = "ktp_$surat_$nama.$fktp";
+    $file_foto = "foto_$surat_$nama.$ffoto";
     $tmp_kk = $_FILES['fkk']['tmp_name'];
     $tmp_ktp = $_FILES['fktp']['tmp_name'];
     $tmp_foto = $_FILES['ffoto']['tmp_name'];
@@ -204,18 +204,18 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-ffoto').classList.add('d-none');
                 // set required
                 document.getElementById('nik').removeAttribute('required');
-                document.getElementById('nokk').setAttribute('required','');
-                document.getElementById('nama').setAttribute('required','');
-                document.getElementById('tl').setAttribute('required','');
+                document.getElementById('nokk').setAttribute('required', '');
+                document.getElementById('nama').setAttribute('required', '');
+                document.getElementById('tl').setAttribute('required', '');
                 document.getElementById('tk').removeAttribute('required');
-                document.getElementById('jk').setAttribute('required','');
-                document.getElementById('agama').setAttribute('required','');
-                document.getElementById('alamat').setAttribute('required','');
+                document.getElementById('jk').setAttribute('required', '');
+                document.getElementById('agama').setAttribute('required', '');
+                document.getElementById('alamat').setAttribute('required', '');
                 document.getElementById('pekerjaan').removeAttribute('required');
-                document.getElementById('wn').setAttribute('required','');
-                document.getElementById('ayah').setAttribute('required','');
-                document.getElementById('ibu').setAttribute('required','');
-                document.getElementById('fkk').setAttribute('required','');
+                document.getElementById('wn').setAttribute('required', '');
+                document.getElementById('ayah').setAttribute('required', '');
+                document.getElementById('ibu').setAttribute('required', '');
+                document.getElementById('fkk').setAttribute('required', '');
                 document.getElementById('fktp').removeAttribute('required');
                 document.getElementById('ffoto').removeAttribute('required');
             } else if (answer.value == "Surat Keterangan Kematian") {
@@ -235,19 +235,19 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fktp').classList.add('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
                 //  set required
-                document.getElementById('nik').setAttribute('required','');
-                document.getElementById('nokk').setAttribute('required','');
-                document.getElementById('nama').setAttribute('required','');
+                document.getElementById('nik').setAttribute('required', '');
+                document.getElementById('nokk').setAttribute('required', '');
+                document.getElementById('nama').setAttribute('required', '');
                 document.getElementById('tl').removeAttribute('required');
-                document.getElementById('tk').setAttribute('required','');
-                document.getElementById('jk').setAttribute('required','');
-                document.getElementById('agama').setAttribute('required','');
-                document.getElementById('alamat').setAttribute('required','');
+                document.getElementById('tk').setAttribute('required', '');
+                document.getElementById('jk').setAttribute('required', '');
+                document.getElementById('agama').setAttribute('required', '');
+                document.getElementById('alamat').setAttribute('required', '');
                 document.getElementById('pekerjaan').removeAttribute('required');
                 document.getElementById('wn').removeAttribute('required');
                 document.getElementById('ayah').removeAttribute('required');
                 document.getElementById('ibu').removeAttribute('required');
-                document.getElementById('fkk').setAttribute('required','');
+                document.getElementById('fkk').setAttribute('required', '');
                 document.getElementById('fktp').removeAttribute('required');
                 document.getElementById('ffoto').removeAttribute('required');
             } else if (answer.value == "Surat Keterangan Domisili") {
@@ -267,20 +267,20 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fktp').classList.remove('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
                 // set required
-                document.getElementById('nik').setAttribute('required','');
-                document.getElementById('nokk').setAttribute('required','');
-                document.getElementById('nama').setAttribute('required','');
-                document.getElementById('tl').setAttribute('required','');
+                document.getElementById('nik').setAttribute('required', '');
+                document.getElementById('nokk').setAttribute('required', '');
+                document.getElementById('nama').setAttribute('required', '');
+                document.getElementById('tl').setAttribute('required', '');
                 document.getElementById('tk').removeAttribute('required');
-                document.getElementById('jk').setAttribute('required','');
-                document.getElementById('agama').setAttribute('required','');
-                document.getElementById('alamat').setAttribute('required','');
+                document.getElementById('jk').setAttribute('required', '');
+                document.getElementById('agama').setAttribute('required', '');
+                document.getElementById('alamat').setAttribute('required', '');
                 document.getElementById('pekerjaan').removeAttribute('required');
-                document.getElementById('wn').setAttribute('required','');
+                document.getElementById('wn').setAttribute('required', '');
                 document.getElementById('ayah').removeAttribute('required');
                 document.getElementById('ibu').removeAttribute('required');
-                document.getElementById('fkk').setAttribute('required','');
-                document.getElementById('fktp').setAttribute('required','');
+                document.getElementById('fkk').setAttribute('required', '');
+                document.getElementById('fktp').setAttribute('required', '');
                 document.getElementById('ffoto').removeAttribute('required');
             } else if (answer.value == "Surat Keterangan Tidak Mampu") {
                 document.getElementById('input-nik').classList.remove('d-none');
@@ -299,20 +299,20 @@ if (isset($_POST['submitform'])) {
                 document.getElementById('input-fktp').classList.remove('d-none');
                 document.getElementById('input-ffoto').classList.add('d-none');
                 // set required
-                document.getElementById('nik').setAttribute('required','');
-                document.getElementById('nokk').setAttribute('required','');
-                document.getElementById('nama').setAttribute('required','');
-                document.getElementById('tl').setAttribute('required','');
+                document.getElementById('nik').setAttribute('required', '');
+                document.getElementById('nokk').setAttribute('required', '');
+                document.getElementById('nama').setAttribute('required', '');
+                document.getElementById('tl').setAttribute('required', '');
                 document.getElementById('tk').removeAttribute('required');
-                document.getElementById('jk').setAttribute('required','');
-                document.getElementById('agama').setAttribute('required','');
-                document.getElementById('alamat').setAttribute('required','');
-                document.getElementById('pekerjaan').setAttribute('required','');
+                document.getElementById('jk').setAttribute('required', '');
+                document.getElementById('agama').setAttribute('required', '');
+                document.getElementById('alamat').setAttribute('required', '');
+                document.getElementById('pekerjaan').setAttribute('required', '');
                 document.getElementById('wn').removeAttribute('required');
                 document.getElementById('ayah').removeAttribute('required');
                 document.getElementById('ibu').removeAttribute('required');
-                document.getElementById('fkk').setAttribute('required','');
-                document.getElementById('fktp').setAttribute('required','');
+                document.getElementById('fkk').setAttribute('required', '');
+                document.getElementById('fktp').setAttribute('required', '');
                 document.getElementById('ffoto').removeAttribute('required');
             }
         };
