@@ -3,7 +3,7 @@ session_start();
 require "../connect/db_connect.php";
 
 if (isset($_SESSION['name'])) {
-    header("Location: index.php");
+    header("Location: menu.php");
     exit();
 }
 

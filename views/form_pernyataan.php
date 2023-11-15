@@ -1,5 +1,11 @@
 <?php
+session_start();
 require "../connect/db_connect.php";
+
+if (!isset($_SESSION['name'])) {
+    header("Location: login.php");
+    exit();
+}
 
 if (isset($_POST['submitform'])) {
     $nosurat = "0";

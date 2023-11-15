@@ -1,17 +1,25 @@
 <?php
-    require "../connect/db_connect.php";
+session_start();
+require "../connect/db_connect.php";
 
-    $sql_surat = mysqli_query($conn, "SELECT * FROM surat");
+if (!isset($_SESSION['name'])) {
+    header("Location: login.php");
+    exit();
+}
 
-    $surat = [];
-    while ($row = mysqli_fetch_assoc($sql_surat)){
-        $surat[] = $row;
-    }
+$get_nik = $_SESSION['nik'];
 
+$sql_surat = mysqli_query($conn, "SELECT * FROM surat WHERE nik = $get_nik");
+
+$surat = [];
+while ($row = mysqli_fetch_assoc($sql_surat)) {
+    $surat[] = $row;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +27,7 @@
 
     <link rel="stylesheet" href="../styles/userstyle.css">
 </head>
+
 <body>
     <?php include 'navbar.php'; ?>
 
@@ -40,30 +49,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1; foreach ($surat as $srt) :
-                        $sql_form = mysqli_query($conn, "SELECT * FROM forms WHERE form_id = $srt[fk_form_id]");
+                    <?php $i = 1;
+                    foreach ($surat as $srt) :
+                        $sql_form = mysqli_query($conn, "SELECT * FROM forms WHERE nik = $get_nik");
                         $form = [];
-                        while ($row = mysqli_fetch_assoc($sql_form)){
+                        while ($row = mysqli_fetch_assoc($sql_form)) {
                             $form[] = $row;
                         }
-                        $j = 1; foreach ($form as $f) :
+                        $j = 1;
+                        foreach ($form as $f) :
                     ?>
-                    <tr>
-                        <td><?= $i; ?></td>
-                        <td><?= $f['nama_surat']?></td>
-                        <td><?= $srt['jenis_surat']?></td>
-                        <td><?= $srt['tgl_masuk']?></td>
-                        <td><?= $srt['tgl_keluar']?></td>
-                        <td><?= $f['status']?></td>
-                        <td>
-                            <a href="../surat/<?= $f['nama_surat']?>.php?form_id=<?= $f['form_id']?>" target="_blank"><button>Unduh</button></a>
-                        </td>
-                    </tr>
-                    <?php $j++; endforeach; ?>
-                    <?php $i++; endforeach; ?>
+                            <tr>
+                                <td><?= $i; ?></td>
+                                <td><?= $f['nama_surat'] ?></td>
+                                <td><?= $srt['jenis_surat'] ?></td>
+                                <td><?= $srt['tgl_masuk'] ?></td>
+                                <td><?= $srt['tgl_keluar'] ?></td>
+                                <td><?= $f['status'] ?></td>
+                                <td>
+                                    <a href="../surat/<?= $f['nama_surat'] ?>.php?form_id=<?= $f['form_id'] ?>" target="_blank"><button>Unduh</button></a>
+                                </td>
+                            </tr>
+                        <?php $j++;
+                        endforeach; ?>
+                    <?php $i++;
+                    endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
 </body>
+
 </html>

@@ -1,3 +1,14 @@
+<?php
+session_start();
+require "../connect/db_connect.php";
+
+if (!isset($_SESSION['name'])) {
+    header("Location: login.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +23,7 @@
     
     <div class="menu">
         <div class="greeting-text">
-            <p>Selamat Datang, !</p>
+            <p>Selamat Datang, <?php echo $_SESSION['name']?>!</p>
         </div>
         <div class="menu-box">
             <a href="form_keterangan.php">

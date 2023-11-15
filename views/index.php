@@ -20,7 +20,7 @@
             <div class="hero-pr">
                 <p>e-Surat merupakan aplikasi pembuat surat yang diperuntukkan untuk Desa Suka Maju. Aplikasi ini memberikan layanan pembuatan surat keterangan, surat pengantar, dan surat pernyataan secara daring atau online.</p>
             </div>
-            <button>Buat Surat Sekarang</button>
+            <a href="menu.php"><button>Buat Surat Sekarang</button></a>
         </div>
         <div class="hero-image">
             <img src="../assets/landing.png" alt="landing">
