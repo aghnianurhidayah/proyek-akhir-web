@@ -8,26 +8,17 @@ if (!(isset($_SESSION['role']))) {
 } else {
     if ($_SESSION['role'] == "admin") {
 
-        $sql_form = mysqli_query($conn, "SELECT * FROM forms JOIN surat ON forms.form_id = surat.fk_form_id");
+        if (isset($_POST['cari'])) {
+            $keyword = $_POST['cari'];
+            $sql_form = mysqli_query($conn, "SELECT * FROM forms JOIN surat ON forms.form_id = surat.fk_form_id WHERE no_surat LIKE '%$keyword%'");
+        } else {
+            $sql_form = mysqli_query($conn, "SELECT * FROM forms JOIN surat ON forms.form_id = surat.fk_form_id");
+        }
 
         $forms = [];
         while ($row = mysqli_fetch_assoc($sql_form)) {
             $forms[] = $row;
         }
-
-        // if (isset($_GET['search'])){
-        //     $cari = $_GET['cari'];
-
-        //     $result = mysqli_query($conn, "SELECT * FROM forms WHERE nama_surat LIKE '$cari'");
-        // }else{
-        //     $result = mysqli_query($conn, "SELECT * FROM forms");
-        // }
-
-        // $forms = [];
-
-        // while ($row = mysqli_fetch_assoc($result)){
-        //     $forms = $row;
-        // }
 
 ?>
 
@@ -38,7 +29,7 @@ if (!(isset($_SESSION['role']))) {
             <meta charset="UTF-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Admin | Dashboard</title>
+            <title>e-SukMa | Dashboard</title>
             <link rel="stylesheet" href="../styles/dashboard.css" />
             <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
         </head>
@@ -57,8 +48,10 @@ if (!(isset($_SESSION['role']))) {
                                 echo date('h:i a'); ?></p>
                         </div>
                         <div class="search">
-                            <i class="bx bx-search"></i>
-                            <input type="text" name="cari" placeholder="Search">
+                            <i class="bx bx-search"></i><input type="submit" name="search" hidden>
+                            <form action="" method="post">
+                                <input type="text" name="cari" placeholder="Search">
+                            </form>
                         </div>
                     </div>
                     <table>

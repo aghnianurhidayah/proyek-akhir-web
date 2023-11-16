@@ -24,13 +24,13 @@ if (isset($_POST['signup'])) {
         if (!$check->num_rows > 0) {
             $result = mysqli_query($conn, "INSERT INTO users VALUES ('', '$nik', '$name', '$password')");
             if ($result) {
-                echo "<script>alert('Selamat, registrasi berhasil!')</script>";
+                echo "<script>alert('Registrasi Berhasil')</script>";
                 header("Location: login.php");
             } else {
-                echo "<script>alert('Terjadi kesalahan.')</script>";
+                echo "<script>alert('Terjadi kesalahan')</script>";
             }
         } else {
-            echo "<script>alert('NIK Sudah Terdaftar.')</script>";
+            echo "<script>alert('NIK Sudah Terdaftar')</script>";
         }
     } else {
         echo "
@@ -41,34 +41,6 @@ if (isset($_POST['signup'])) {
     }
 }
 
-// if (isset($_POST['uname']) && isset($POST['password'])) {
-
-// function validate($data){
-//     $data = trim($data);
-//     $data = stripslashes($data);
-//     $data = htmlspecialchars($data);
-//     return $data;
-// }
-
-// $uname = validate($_POST['uname']);
-// $pass = validate($_POST['password']);
-
-// if (empty($uname)) {
-//     header("Location: login.php?error=User Name is required");
-//     exit ();
-// }else if (empty($pass)) {
-//     header("Location: login.php?error=Password is required");
-//     exit ();
-// }else{
-//     echo "Valid input";
-// }
-
-// }
-// else {
-//     header("Location: login.php");
-//     exit();
-// }
-
 ?>
 
 
@@ -78,7 +50,7 @@ if (isset($_POST['signup'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>e-SukMa | Daftar Akun</title>
     <link rel="stylesheet" href="../styles/sign.css">
 </head>
 

@@ -22,7 +22,7 @@ session_start();
                 <p>Urus Surat<br><span>Mudah, Cepat, Praktis</span></p>
             </div>
             <div class="hero-pr">
-                <p>e-Surat merupakan aplikasi pembuat surat yang diperuntukkan untuk Desa Suka Maju. Aplikasi ini memberikan layanan pembuatan surat keterangan, surat pengantar, dan surat pernyataan secara daring atau online.</p>
+                <p>e-SukMa merupakan aplikasi pembuat surat yang diperuntukkan untuk Desa Suka Maju. Aplikasi ini memberikan layanan pembuatan surat keterangan, surat pengantar, dan surat pernyataan secara daring atau online.</p>
             </div>
             <a href="menu.php"><button>Buat Surat Sekarang</button></a>
         </div>

@@ -32,12 +32,14 @@ body {
   justify-content: space-around;
   /* grid-gap: 100px; */
   background-color: var(--background-color);
-  padding: 10px 14px;
+  /* padding: 10px 14px; */
   margin-top: 75px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .container {
-  min-width: 500px;
+  /* min-width: 50%; */
   margin-top: 10px;
 }
 
@@ -46,32 +48,42 @@ body {
   color: var(--primary-color);
   padding: 10px 14px;
   border-radius: 10px;
-  height: calc(100vh / 2);
-  margin-top: 10px;
+  /* height: calc(100vh / 2); */
+  /* margin-top: 10px; */
+  /* min-width: 500px; */
+  width: 50%;
+  margin: 10px 15px;
 }
 
-.left p {
+/* .left p {
   padding: 8px;
-}
+} */
 
 .right {
   background-color: var(--secondary-color);
   color: var(--primary-color);
   padding: 10px 14px;
   border-radius: 10px;
-  height: calc(100vh - 20vh);
-  margin-top: 10px;
+  /* height: calc(100vh - 20vh); */
+  width: 50%;
+  margin: 10px 13px;
 }
 
 .status-select {
-  min-width: 350px;
+  display: grid;
+  margin-bottom: 5px;
 }
 
-select {
-  margin-top: 10px;
+.no-surat {
+  display: grid;
+}
+
+select,
+input {
+  /* margin-top: 10px;
   margin-left: 5px;
-  appearance: none;
-  width: 50%;
+  appearance: none; */
+  /* width: 50%; */
   font-size: 15px;
   padding: 10px;
   background-color: #fff;
@@ -104,18 +116,33 @@ select {
   top: 55%;
 }
 
-.status-select .button {
+.button {
+  margin-top: 10px;
   padding: 10px 30px;
   background-color: var(--primary-color);
   border-style: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 10px;
   color: var(--secondary-color);
   cursor: pointer;
 }
 
-.content-iframe{
-    width: 500px;
-    height: calc(100vh - 30vh);
+.content-iframe {
+  width: 100%;
+  height: calc(100vh - 30vh);
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    display: grid;
+  }
 }

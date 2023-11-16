@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>e-Surat</title>
 </head>
 
 <body>
   <nav>
     <div class="nav-logo">
-      <h3>SukaMaju</h3>
+      <h3>e-SukMa</h3>
     </div>
     <div class="nav-items">
       <?php

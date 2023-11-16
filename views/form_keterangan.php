@@ -10,7 +10,7 @@ if (!(isset($_SESSION['role']))) {
 
         if (isset($_POST['submitform'])) {
             $nosurat = "0";
-            $nik = $_POST['nik'];
+            $nik = $_SESSION['nik'];
             $nokk = $_POST['nokk'];
             $nama = $_POST['nama'];
             $tl = $_POST['tl'];
@@ -84,7 +84,7 @@ if (!(isset($_SESSION['role']))) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>e-Surat | Formulir Keterangan</title>
+            <title>e-SukMa | Formulir Keterangan</title>
 
             <link rel="stylesheet" href="../styles/userstyle.css">
         </head>
@@ -314,6 +314,22 @@ if (!(isset($_SESSION['role']))) {
                         document.getElementById('fkk').setAttribute('required', '');
                         document.getElementById('fktp').setAttribute('required', '');
                         document.getElementById('ffoto').removeAttribute('required');
+                    } else {
+                        document.getElementById('input-nik').classList.add('d-none');
+                        document.getElementById('input-nokk').classList.add('d-none');
+                        document.getElementById('input-nama').classList.add('d-none');
+                        document.getElementById('input-tl').classList.add('d-none');
+                        document.getElementById('input-tk').classList.add('d-none');
+                        document.getElementById('input-jk').classList.add('d-none');
+                        document.getElementById('input-agama').classList.add('d-none');
+                        document.getElementById('input-alamat').classList.add('d-none');
+                        document.getElementById('input-pekerjaan').classList.add('d-none');
+                        document.getElementById('input-wn').classList.add('d-none');
+                        document.getElementById('input-ayah').classList.add('d-none');
+                        document.getElementById('input-ibu').classList.add('d-none');
+                        document.getElementById('input-fkk').classList.add('d-none');
+                        document.getElementById('input-fktp').classList.add('d-none');
+                        document.getElementById('input-ffoto').classList.add('d-none');
                     }
                 };
             </script>

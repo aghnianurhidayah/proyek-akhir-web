@@ -11,7 +11,7 @@ if (!(isset($_SESSION['role']))) {
 
         if (isset($_POST['submitform'])) {
             $nosurat = "0";
-            $nik = $_POST['nik'];
+            $nik = $_SESSION['nik'];
             $nokk = $_POST['nokk'];
             $nama = $_POST['nama'];
             $tl = $_POST['tl'];
@@ -86,7 +86,7 @@ if (!(isset($_SESSION['role']))) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>e-Surat | Formulir Keterangan</title>
+            <title>e-SukMa | Formulir Pengantar</title>
 
             <link rel="stylesheet" href="../styles/userstyle.css">
         </head>
@@ -115,15 +115,15 @@ if (!(isset($_SESSION['role']))) {
                         </div>
                         <div class="input-box d-none" id="input-nokk">
                             <label for="nokk">No KK</label>
-                            <input type="number" name="nokk" id="nokk" onkeypress="isInputNumber(event)" minlength="16" maxlength="16" class="textfield" placeholder="Masukan No. KK" required>
+                            <input type="number" name="nokk" id="nokk" onkeypress="isInputNumber(event)" minlength="16" maxlength="16" class="textfield" placeholder="Masukan No. KK">
                         </div>
                         <div class="input-box d-none" id="input-nama">
                             <label for="nama">Nama Lengkap</label>
-                            <input type="text" name="nama" id="nama" class="textfield" placeholder="Masukan Nama Lengkap" required>
+                            <input type="text" name="nama" id="nama" class="textfield" placeholder="Masukan Nama Lengkap">
                         </div>
                         <div class="input-box d-none" id="input-tl">
                             <label for="tl">Tanggal Lahir</label>
-                            <input type="date" name="tl" id="tl" class="textfield" placeholder="Masukan Tanggal Lahir" required>
+                            <input type="date" name="tl" id="tl" class="textfield" placeholder="Masukan Tanggal Lahir">
                         </div>
                         <div class="input-box d-none" id="input-jk">
                             <label for="jk">Jenis Kelamin</label>
@@ -145,15 +145,15 @@ if (!(isset($_SESSION['role']))) {
                         </div>
                         <div class="input-box d-none" id="input-alamat">
                             <label for="alamat">Alamat</label>
-                            <input type="text" name="alamat" id="alamat" class="textfield" placeholder="Masukan Alamat" required>
+                            <input type="text" name="alamat" id="alamat" class="textfield" placeholder="Masukan Alamat">
                         </div>
                         <div class="input-box d-none" id="input-pekerjaan">
                             <label for="pekerjaan">Pekerjaan</label>
-                            <input type="text" name="pekerjaan" id="pekerjaan" class="textfield" placeholder="Masukan Pekerjaan" required>
+                            <input type="text" name="pekerjaan" id="pekerjaan" class="textfield" placeholder="Masukan Pekerjaan">
                         </div>
                         <div class="input-box d-none" id="input-wn">
                             <label for="wn">Kewarganegaraan</label>
-                            <input type="text" name="wn" id="wn" class="textfield" placeholder="Masukan Kewarganegaraan" required>
+                            <input type="text" name="wn" id="wn" class="textfield" placeholder="Masukan Kewarganegaraan">
                         </div>
                         <div class="input-box d-none" id="input-fkk">
                             <label for="fkk">Upload File KK</label>
@@ -253,6 +253,19 @@ if (!(isset($_SESSION['role']))) {
                         document.getElementById('fkk').removeAttribute('required');
                         document.getElementById('fktp').setAttribute('required', '');
                         document.getElementById('ffoto').removeAttribute('required');
+                    } else {
+                        document.getElementById('input-nik').classList.add('d-none');
+                        document.getElementById('input-nokk').classList.add('d-none');
+                        document.getElementById('input-nama').classList.add('d-none');
+                        document.getElementById('input-tl').classList.add('d-none');
+                        document.getElementById('input-jk').classList.add('d-none');
+                        document.getElementById('input-agama').classList.add('d-none');
+                        document.getElementById('input-alamat').classList.add('d-none');
+                        document.getElementById('input-pekerjaan').classList.add('d-none');
+                        document.getElementById('input-wn').classList.add('d-none');
+                        document.getElementById('input-fkk').classList.add('d-none');
+                        document.getElementById('input-fktp').classList.add('d-none');
+                        document.getElementById('input-ffoto').classList.add('d-none');
                     }
                 };
             </script>

@@ -10,7 +10,7 @@ if (!(isset($_SESSION['role']))) {
 
         if (isset($_POST['submitform'])) {
             $nosurat = "0";
-            $nik = $_POST['nik'];
+            $nik = $_SESSION['nik'];
             $nokk = $_POST['nokk'];
             $nama = $_POST['nama'];
             $tl = $_POST['tl'];
@@ -85,7 +85,7 @@ if (!(isset($_SESSION['role']))) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>e-Surat | Formulir Pernyataan</title>
+            <title>e-SukMa | Formulir Pernyataan</title>
 
             <link rel="stylesheet" href="../styles/userstyle.css">
         </head>
@@ -103,7 +103,7 @@ if (!(isset($_SESSION['role']))) {
                             <label for="surat">Pilih Surat</label>
                             <select name="surat" onchange="getValue(this)">
                                 <option value="">Pilih Surat</option>
-                                <option value="Surat Pernyataan Tidak Memiliki Akta Kelahiran">Surat Pernyataan Tidak Memiliki Akta Kelahiran</option>
+                                <option value="Surat Pernyataan Tidak Memiliki Akte Kelahiran">Surat Pernyataan Tidak Memiliki Akte Kelahiran</option>
                                 <option value="Surat Pernyataan Janda Duda">Surat Pernyataan Janda/Duda</option>
                             </select>
                         </div>
@@ -143,23 +143,23 @@ if (!(isset($_SESSION['role']))) {
                         </div>
                         <div class="input-box d-none" id="input-alamat">
                             <label for="alamat">Alamat</label>
-                            <input type="text" name="alamat" id="alamat" class="textfield" placeholder="Masukan Alamat" required>
+                            <input type="text" name="alamat" id="alamat" class="textfield" placeholder="Masukan Alamat">
                         </div>
                         <div class="input-box d-none" id="input-pekerjaan">
                             <label for="pekerjaan">Pekerjaan</label>
-                            <input type="text" name="pekerjaan" id="pekerjaan" class="textfield" placeholder="Masukan Pekerjaan" required>
+                            <input type="text" name="pekerjaan" id="pekerjaan" class="textfield" placeholder="Masukan Pekerjaan">
                         </div>
                         <div class="input-box d-none" id="input-wn">
                             <label for="wn">Kewarganegaraan</label>
-                            <input type="text" name="wn" id="wn" class="textfield" placeholder="Masukan Kewarganegaraan" required>
+                            <input type="text" name="wn" id="wn" class="textfield" placeholder="Masukan Kewarganegaraan">
                         </div>
                         <div class="input-box d-none" id="input-ayah">
                             <label for="ayah">Nama Ayah Kandung</label>
-                            <input type="text" name="ayah" id="ayah" class="textfield" placeholder="Masukan Nama Ayah" required>
+                            <input type="text" name="ayah" id="ayah" class="textfield" placeholder="Masukan Nama Ayah">
                         </div>
                         <div class="input-box d-none" id="input-ibu">
                             <label for="ibu">Nama Ibu Kandung</label>
-                            <input type="text" name="ibu" id="ibu" class="textfield" placeholder="Masukan Nama Ibu" required>
+                            <input type="text" name="ibu" id="ibu" class="textfield" placeholder="Masukan Nama Ibu">
                         </div>
                         <div class="input-box d-none" id="input-fkk">
                             <label for="fkk">Upload File KK</label>
@@ -211,7 +211,7 @@ if (!(isset($_SESSION['role']))) {
                         document.getElementById('fkk').setAttribute('required', '');
                         document.getElementById('fktp').removeAttribute('required');
                         document.getElementById('ffoto').removeAttribute('required');
-                    } else if (answer.value == "Surat Pernyataan Janda/Duda") {
+                    } else if (answer.value == "Surat Pernyataan Janda Duda") {
                         document.getElementById('input-nik').classList.remove('d-none');
                         document.getElementById('input-nokk').classList.remove('d-none');
                         document.getElementById('input-nama').classList.remove('d-none');
@@ -241,6 +241,21 @@ if (!(isset($_SESSION['role']))) {
                         document.getElementById('fkk').removeAttribute('required');
                         document.getElementById('fktp').setAttribute('required', '');
                         document.getElementById('ffoto').removeAttribute('required');
+                    } else {
+                        document.getElementById('input-nik').classList.add('d-none');
+                        document.getElementById('input-nokk').classList.add('d-none');
+                        document.getElementById('input-nama').classList.add('d-none');
+                        document.getElementById('input-tl').classList.add('d-none');
+                        document.getElementById('input-jk').classList.add('d-none');
+                        document.getElementById('input-agama').classList.add('d-none');
+                        document.getElementById('input-alamat').classList.add('d-none');
+                        document.getElementById('input-pekerjaan').classList.add('d-none');
+                        document.getElementById('input-wn').classList.add('d-none');
+                        document.getElementById('input-ayah').classList.add('d-none');
+                        document.getElementById('input-ibu').classList.add('d-none');
+                        document.getElementById('input-fkk').classList.add('d-none');
+                        document.getElementById('input-fktp').classList.add('d-none');
+                        document.getElementById('input-ffoto').classList.add('d-none');
                     }
                 };
             </script>

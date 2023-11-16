@@ -87,7 +87,7 @@ if (!(isset($_SESSION['role']))) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>e-Surat | Ubah Form</title>
+            <title>e-SukMa | Ubah Form</title>
 
             <link rel="stylesheet" href="../styles/userstyle.css">
         </head>
