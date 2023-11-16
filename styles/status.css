@@ -145,4 +145,12 @@ label {
   .content {
     display: grid;
   }
+
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+  }
 }
