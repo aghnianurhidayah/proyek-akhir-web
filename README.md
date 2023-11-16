@@ -36,23 +36,25 @@ Setelah login sebagai admin, akan di arahkan ke halaman dashboard, disini admin 
 ## Halaman User
 
 Jika login sebagai user maka akan menampilkan menu surat.
-1.Surat keterangan
+
+1. Surat keterangan
 
 - Surat keterangan kelahiran.
 - Surat keterangan kematian.
 - Surat keterangan domisili.
 - Surat keterangan tidak mampu.
 
-  2.Surat Pengantar
+2. Surat Pengantar
 
 - Surat pengantar e-KTP
 - Surat pengantar nikah
 - Surat pengantar SKCK
 
-  3.Surat Pernyataan
+3. Surat Pernyataan
 
 - Surat Pernyataan tidak memilki Akte
 - Surat pernyataan Janda atau Duda
 
 ## Riwayat Surat
+
 Pada halaman ini, user dapat melihat riwayat surat yang telah dibuat, selain itu user juga dapat mengedit surat dan membatalkan pengajuan surat selama surat belum disetujui atau ditolak.
