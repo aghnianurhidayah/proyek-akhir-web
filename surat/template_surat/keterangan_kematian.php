@@ -45,16 +45,8 @@
                 <td style="padding-bottom: 6px;">: <?= $form['jenis_kelamin'] ?></td>
             </tr>
             <tr>
-                <td style="width: 35%; text-align: left; padding-left: 20px; padding-bottom: 6px;">Pekerjaan</td>
-                <td style="padding-bottom: 6px;">: <?= $form['pekerjaan'] ?></td>
-            </tr>
-            <tr>
                 <td style="width: 35%; text-align: left; padding-left: 20px; padding-bottom: 6px;">Agama</td>
                 <td style="padding-bottom: 6px;">: <?= $form['agama'] ?></td>
-            </tr>
-            <tr>
-                <td style="width: 35%; text-align: left; padding-left: 20px; padding-bottom: 6px;">Kewarganegaraan</td>
-                <td style="padding-bottom: 6px;">: <?= $form['kewarganegaraan'] ?></td>
             </tr>
             <tr>
                 <td style="width: 35%; text-align: left; padding-left: 20px; padding-bottom: 6px;">Alamat</td>

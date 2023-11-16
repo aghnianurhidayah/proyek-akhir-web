@@ -39,6 +39,7 @@
                     <li class="list">
                         <a href="#" class="nav-link">
                             <i class="bx bx-moon icon" id="dark-mode"></i>
+                            <span class="link" id="dark-mode">Dark Mode</span>
                         </a>
                     </li>
                     <li class="list">

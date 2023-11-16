@@ -1,8 +1,3 @@
-<?php
-// session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,17 +14,24 @@
     </div>
     <div class="nav-items">
       <?php
-      if (!isset($_SESSION['name'])) {
+      if (!isset($_SESSION['role'])) {
       ?>
-        <a href="about.php">Tentang</a>
         <a href="login.php" class="button">Login</a>
-      <?php
+        <?php
       }
-      if (isset($_SESSION['name'])) {
-      ?>
-        <a href="menu.php">Menu</a>
-        <a href="hist.php">Riwayat</a>
-        <a href="logout.php" class="button">Logout</a>
+      if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] == "admin") {
+        ?>
+          <a href="logout.php" class="button">Logout</a>
+        <?php
+        } else if ($_SESSION['role'] == "user") {
+        ?>
+          <a href="menu.php">Menu</a>
+          <a href="hist.php">Riwayat</a>
+          <a href="logout.php" class="button">Logout</a>
+        <?php
+        }
+        ?>
       <?php
       }
       ?>

@@ -21,7 +21,7 @@
                 <p>Surat<br>Keterangan</p>
             </div>
         </a>
-        <a href="./views/surat_pengantar.php">
+        <a href="../views/surat_pengantar.php">
             <div class="menu-item">
                 <div class="box">
                     <img src="../assets/copy.png" alt="">
@@ -29,7 +29,7 @@
                 <p>Surat<br>Pengantar</p>
             </div>
         </a>
-        <a href="./views/surat_pernyataan.php">
+        <a href="../views/surat_pernyataan.php">
             <div class="menu-item">
                 <div class="box">
                     <img src="../assets/copy.png" alt="">

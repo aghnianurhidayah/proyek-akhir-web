@@ -29,8 +29,18 @@ body {
 
 .main-content {
   background-color: var(--background-color);
-  min-height: 100vh;
   padding: 10px 14px;
   margin-top: 75px;
   width: 100%;
+  color: var(--primary-color);
+}
+
+.card-container{
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.chart{
+  width: 900px;
+  margin-left: 180px;
 }

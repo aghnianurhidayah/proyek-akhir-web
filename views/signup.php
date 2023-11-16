@@ -3,8 +3,13 @@ session_start();
 require "../connect/db_connect.php";
 
 if (isset($_SESSION['role'])) {
-    header("Location: login.php");
-    exit();
+    if ($_SESSION['role'] == "admin") {
+        header("Location: dashboard.php");
+        exit();
+    } else if ($_SESSION['role'] == "user") {
+        header("Location: menu.php");
+        exit();
+    }
 }
 
 if (isset($_POST['signup'])) {

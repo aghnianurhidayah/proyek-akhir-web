@@ -3,13 +3,14 @@ session_start();
 require "../connect/db_connect.php";
 
 if (isset($_SESSION['role'])) {
-    header("Location: menu.php");
-    exit();
-} 
-// else if ($_SESSION['name'] == "admin"){
-//     header("Location: dashboard.php");
-//     exit();
-// }
+    if ($_SESSION['role'] == "admin") {
+        header("Location: dashboard.php");
+        exit();
+    } else if ($_SESSION['role'] == "user"){
+        header("Location: menu.php");
+        exit();
+    }
+}
 
 if (isset($_POST['login'])) {
     $nik = $_POST['nik'];
@@ -19,7 +20,6 @@ if (isset($_POST['login'])) {
     if ($nik == "123" && $name == "admin" && $password == "admin123") {
         $_SESSION['role'] = "admin";
         header("Location: dashboard.php");
-        exit();
     } else {
         $result = mysqli_query($conn, "SELECT * FROM users WHERE nik='$nik'");
         if (mysqli_num_rows($result) === 1) {
@@ -31,7 +31,6 @@ if (isset($_POST['login'])) {
                         $_SESSION['name'] = $row['nama'];
                         $_SESSION['nik'] = $row['nik'];
                         header("Location: menu.php");
-                        exit();
                     } else {
                         echo "<script>alert('Password tidak sesuai')</script>";
                     }
@@ -44,33 +43,6 @@ if (isset($_POST['login'])) {
         }
     }
 }
-
-// if (isset($_POST['uname']) && isset($POST['password'])) {
-
-    // function validate($data)
-    // {
-    //     $data = trim($data);
-    //     $data = stripslashes($data);
-    //     $data = htmlspecialchars($data);
-    //     return $data;
-    // }
-
-    // $uname = validate($_POST['uname']);
-    // $pass = validate($_POST['password']);
-
-//     if (empty($uname)) {
-//         header("Location: index.php?error=Username is required");
-//         exit();
-//     } else if (empty($pass)) {
-//         header("Location: index.php?error=Password is required");
-//         exit();
-//     } else {
-//         echo "Valid input";
-//     }
-// } else {
-//     header("Location: login.php");
-//     exit();
-// }
 
 ?>
 
