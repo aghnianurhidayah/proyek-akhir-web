@@ -54,5 +54,5 @@ Jika login sebagai user maka akan menampilkan menu surat.
 - Surat Pernyataan tidak memilki Akte
 - Surat pernyataan Janda atau Duda
 
-e.Riwayat Surat
+## Riwayat Surat
 Pada halaman ini, user dapat melihat riwayat surat yang telah dibuat, selain itu user juga dapat mengedit surat dan membatalkan pengajuan surat selama surat belum disetujui atau ditolak.
