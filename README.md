@@ -15,25 +15,25 @@ e-SukMa merupakan aplikasi pembuat surat yang diperuntukkan untuk Desa Suka Maju
 
 1. Login
 2. Logout
-3. Isi form surat
+3. Isi Form Surat
 4. Lihat Riwayat Surat
-5. Edit surat
-6. Batalkan pengajuan surat
-7. Download surat
+5. Edit Surat
+6. Batalkan Pengajuan Surat
+7. Download Surat
 
 ## Halaman Register/Daftar Akun
 
-Pada halaman ini user yang belum memiliki akun harus sign up (mendaftar) terlebih dahulu, pada halaman ini user akan memasukan NIK, kemudian membuat username dan Password.
+Pada halaman ini user yang belum memiliki akun harus sign up (mendaftar) terlebih dahulu, pada halaman ini user diharuskan untuk memasukan NIK, Nama dan Password.
 
 ## Halaman Login
 
-Pada halaman login anda bisa login sebagai admin dengan memasukan username “admin” dan password “admin123”, dan jika user ingin login maka bisa menggunakan username dan password yang dibuat saat register dan memasukan juga NIK.
+Pada halaman login anda bisa login sebagai admin dengan memasukan nik "123" nama “admin” dan password “admin123”, dan jika user ingin login maka bisa menggunakan bik, nama, dan password yang dibuat saat register.
 
-## Halaman Admin
+## Halaman Admin/Dashboard
 
-Setelah login sebagai admin, akan di arahkan ke halaman dashboard, disini admin dapat melihat surat masuk, mengganti status surat, dan menambah nomor surat. Pada halaman admin juga terdapat fitur mencari sesuai nomor surat dan fitur dark mode. Kemudian admin juga bisa logout dengan mengklik tulisan “logout”.
+Setelah login sebagai admin, akan di arahkan ke halaman dashboard. Pada halaman ini, admin dapat melihat surat masuk, mengganti status surat, dan menambah nomor surat. Pada halaman admin juga terdapat fitur mencari sesuai nomor surat dan fitur dark mode. Kemudian admin juga bisa logout dengan mengklik tulisan “logout”.
 
-## Halaman User
+## Halaman User/Menu
 
 Jika login sebagai user maka akan menampilkan menu surat.
 
@@ -54,6 +54,8 @@ Jika login sebagai user maka akan menampilkan menu surat.
 
 - Surat Pernyataan tidak memilki Akte
 - Surat pernyataan Janda atau Duda
+
+Setelah memilih menu surat, user akan diarahkan ke halaman form pengisian surat. Pada halaman ini, user diminta untuk memasukkan data diri dan upload file sesuai keperluan surat.
 
 ## Riwayat Surat
 
